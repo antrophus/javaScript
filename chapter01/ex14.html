@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+
+<body>
+    <h1>자바스크립트</h1>
+    <h2>배열</h2>
+
+    <!-- ------------------------------------------------------- -->
+    <script>
+        let arr00 = new Array();
+        arr00[0] =1;
+        arr00[1] =2;
+        arr00[3] =3;
+        console.log(arr00[3]);
+        console.log("------------------------------------");
+
+        //배열
+        let arr = ['apple', 'banana', 'cherry']; // 선언
+        console.log(arr); // ['apple', 'banana', 'cherry']
+
+        console.log("------------------------------------");
+
+        let arr01 = [10, 20, 30, 40, 50];
+        console.log(arr01[0]);
+        console.log(arr01[3]);
+
+        //30을 변수 no에 담고 싶다.
+        let no = arr01[2];
+
+        //잘 담겼나 출력해보자
+        console.log(no);
+
+        arr01[6] = 60;
+        console.log(arr01[6]);
+
+        console.log("------------------------------------");
+
+        let arr02 = [];
+        arr02[0] = 1;
+        arr02[1] = 2;
+        arr02[2] = 3;
+
+        //전체출력하기
+        for(let i = 0; i<arr02.length; i++){
+            console.log(arr02[i]);
+        }
+        console.log("------------------------------------");
+        let arr04 = []; // 함수도 넣을수 있따...
+        arr04[0] = 1;
+        arr04[1] = 2.5;
+        arr04[2] = '안녕';
+        arr04[3] = 'hello';
+        arr04[4] = 5 > 3;
+        arr04[5] = function(){console.log("정우성");};
+
+        for(let i = 0; i<arr04.length; i++){
+            console.log("값: " + arr04[i] + "\n타입: " + typeof arr04[i]);
+            
+        }console.log("----/메소드를 읽는다----")
+
+        for(let i = 0; i<arr04.length; i++){
+            if( typeof arr04[i] == 'function'){
+                arr04[i]();
+                console.log("====/메소드를 실행한다====")
+            }else{
+                console.log("값: " + arr04[i] + "\n타입: " + typeof arr04[i]);
+            }
+            
+        }
+        //* 변수에는 메소드를 넣을 수 있다
+        //* 변수는 값을 읽는다.  
+        //* 메소드를 "읽는다" 와 메소드를 "실행한다"를 구분해라.
+
+        //////////////////////////////////////////////////////////
+        // 2차원 배열
+        console.log("############## 2차원 배열 #####################");
+        let arr05 = [1, 2.5, '안녕',['정우성','박명수','유재석']];
+
+        console.log(arr05[0]); // 1
+        console.log(arr05[1]); // 2.5
+        console.log(arr05[2]); // 안녕
+
+        console.log(arr05[3]);      // ['정우성','박명수','유재석']
+        console.log(arr05[3][0]);   // 정우성
+        console.log(arr05[3][1]);   // 박명수
+        console.log(arr05[3][2]);   // 유재석
+
+        console.log("------------------- push ---------------------");
+        // 배열에 순서대로 집어넣기 
+        let arr06 = ['이효리'];
+        arr06.push('정우성');
+        arr06.push('박명수');
+        arr06.push('유재석');
+
+        for(let i=0; i<arr06.length; i++){
+            console.log(arr06[i]);
+        }
+        console.log(arr06);
+
+        console.log("------------------- pop ---------------------");
+        arr06.pop(); // 마지막꺼 없어짐
+        console.log(arr06);
+        
+
+    </script>
+    <!-- ------------------------------------------------------- -->
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+<body>
+    <h1>자바스크립트</h1>
+    <h2>함수(기명 함수, 익명 함수)</h2>
+
+    <!-- ------------------------------------------------------- -->
+    <script>
+        //기명 함수 *실행되지 않는다.
+        function add(a, b) {
+            return a + b;
+        }
+        //실행
+        console.log(add(3, 5));
+        console.log(add(7, 9));
+
+        //기명함수 test
+        function testA(){
+            console.log('testA 기명(이름이 있는) 함수 입니다.');
+        }
+        //실행
+        testA();
+
+        console.log("============익명함수 sub==============")
+        //익명 함수 : 변수에 글자나 값만 넣을 수 있는게 아니라 함수처럼 동작을 넣을 수 있다.
+        let sub = function(a, b) {
+            return a - b;
+        }
+        let a = 5;
+        let b = 3;
+        console.log(sub(10,7));
+
+        console.log("===============================")
+
+        //익명 함수 test
+        let testB = 25;
+        testB = function() {
+            console.log('익명(이름이 없는) 함수 입니다.');
+        }
+        //변수 안에 있는 것을 실행해라  :  "() 실행해라"
+        testB();
+
+        //읽어서 출력해줘
+        console.log(testB);
+    </script>
+    <!-- ------------------------------------------------------- -->
+</body>
+</html>

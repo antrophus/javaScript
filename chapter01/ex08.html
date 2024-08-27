@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+<body>
+    <h1>자바스크립트</h1>
+    <h2>과제-별표찍기</h2>
+
+    <!-- ------------------------------------------------------- -->
+    <script>
+        function printStars(num) {
+        for (let i = 1; i <= num; i++) {
+            console.log('*'.repeat(i));
+            document.write('*'.repeat(i));
+        }
+    }
+    printStars(5);
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write(""+"\t"+"\n");
+        }
+    </script>
+    <!-- ------------------------------------------------------- -->
+</body>
+</html>

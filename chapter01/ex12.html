@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+<body>
+    <h1>자바스크립트</h1>
+    <h2>함수(기명 함수, 익명 함수)</h2>
+
+    <!-- ------------------------------------------------------- -->
+    <script>
+        /*
+        let str = 'global';
+
+        //함수정의
+        function checkScope(){
+            let str = 'local';
+            console.log(str);
+        }
+
+        checkScope; // 너누구니?  : 아무것도 안나옴
+        console.log(checkScope); // 너 내용이 뭐니? : 함수 코드 나옴
+        console.log(checkScope()); // 너 실행하면 뭐 나오니? :  
+        checkScope();   //너 실행해봐
+
+        console.log(str);
+        */
+
+
+        ///////////////////////////////////////////////////////////////
+
+        let str = 'global';
+
+        function checkScope() {
+            str = 'local';
+            str2 = '로컬';
+            console.log(str);
+        }
+
+        checkScope();
+
+        console.log(str); 
+        console.log(str2); 
+
+
+    </script>
+    <!-- ------------------------------------------------------- -->
+</body>
+</html>

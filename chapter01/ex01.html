@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+<body>
+    <h1>자바스크립트</h1>
+    <h2>기본데이터 타입</h2>
+
+
+
+    <!-- ----------------------------------------------------------------------------- -->
+    <script>
+        window.console.log('aaa'); //window를 생략할 수 있다.
+        console.log('==========================================');
+        console.log('#데이터타입 확인');
+        //자바스크립트 기본 자료형은 number string boolean
+        console.log(typeof 1);              //number
+        console.log(typeof 1.5);            //number
+        console.log(typeof '한');           //string
+        console.log(typeof '안녕하세요');    //string
+        console.log(typeof (5 > 3));        //boolean
+        console.log(typeof (5 < 3));        //boolean
+        console.log('==========================================');
+
+        console.log("#number형");
+        console.log( 13 + 5 );          // 18
+        console.log( 13 - 5 );          // 8
+        console.log( 13 * 5 );          // 65
+        console.log( 13 / 5 );          // 2.6 (java와 결과가 다르다.)
+        console.log( 13 % 5 );          // 3 (나머지 구하기)
+
+        console.log( 13 + 5.2 );        // 18.2 (int float double 별도 형식 지정이 없어도 계산이 됨)
+        console.log( 5 + 3 * 2 );        // 11
+        console.log( (5 + 3) * 2 );     // 16
+
+        console.log('==========================================');
+
+        console.log("#string형");
+        console.log("동해물과 백두산이");
+        console.log('동해물과 백두산이');
+
+        console.log("동해물과 \"백두산\"이");
+        console.log('동해물과 "백두산"이');
+
+        console.log('동해물과 \'백두산\'이');
+        console.log("동해물과 '백두산'이");
+
+        console.log("동해물과 '백\t두산'이");
+        console.log("동해물과 '백\n두산'이");
+        console.log("동해물과 '백\\두산'이");
+
+        console.log('==========================================');
+        console.log('#boolean');
+        console.log(52>264);
+        console.log(52<264);
+
+        console.log('# && || 연산자');
+        console.log( (5>3) && (5<3)   );  // T && F  => F
+        console.log( (5>3) || (5<3)   );  // T || F  => T
+        console.log( !((5>3) && (5>3)) );  // !(T && T)  => !T => F
+        console.log( !(5<3) );                // !F => T
+
+
+    </script>
+
+<!-- ----------------------------------------------------------- -->
+</body>
+</html>

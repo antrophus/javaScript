@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../workspace_front"
+		},
+		{
+			"path": "../../02.강의자료/mysite_html"
+		},
+		{
+			"path": "../../workspace_boot/mysite"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"indentRainbow.indicatorStyle": "classic"
+	}
+}

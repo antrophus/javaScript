@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+<body>
+    <h1>자바스크립트</h1>
+    <h2>변수</h2>
+<!-- ---------------------------------------------------------- -->
+    <script>
+        console.log('#변수 선언');
+        console.log("-------------var----------------");
+        var no = 3; // int, string 이런거 안씀
+        var str = '안녕하세요';
+        var boo = 3 > 5;
+        var year, month, day;
+        year = '2024년';
+
+        console.log(no);        // 3
+        console.log(str);       // 안녕하세요
+        console.log(boo);       // false
+        console.log(year);      // 2024년
+
+        var name = '유재석';
+        console.log(name);      // 유재석
+        var name = '정우성';
+        console.log(name);      // 정우성 => 앞의 변수와 동일한 변수에 다른 값을 넣으면 덮어쓴다.
+
+        // var는 같은 변수에 다른 값을 넣으면 앞의 값이 지워지고 새로운 값이 덮어쓴다.
+
+        // 그래서 var 보다 let을 사용하는 것이 권장된다.
+        console.log("-------------let----------------");
+        let name2 = '첫 번째 이름';
+        console.log(name2);      
+        // let name2 = ''; 이미 사용된 변수라서 에러가 뜸
+        let no2 = 3;
+        let str2 = '안녕하세요';
+        let boo2 = 3 > 5;
+        let year2, month2, day2;
+        year2 = '2024';
+
+        console.log(year2+1);
+        console.log(no2);        // 3
+        console.log(str2);       // 안녕하세요
+        console.log(boo2);       // false
+
+        console.log("-------------const(상수)----------------");
+        const MAX = 10; // java에서는 final로 선언했음.
+        console.log(MAX);       // 10
+       // MAX = 20; // const로 선언한 변수는 바꿀 수 없음. 에러가 뜸
+
+       /* // 상수는 변수선언과 동시에 초기화 해야된다.
+       const Min;
+       MIN = 0;
+       */
+       console.log("-----------------------------------------");
+       console.log("#값 대입시 자료형이 결정된다.");
+
+       let data;
+       console.log(typeof data); //undefined
+
+       data = 15;
+       console.log(typeof data); //number
+
+       data = '안녕';
+       console.log(typeof data); //string
+
+       data = 5>3;
+       console.log(typeof data); //boolean
+
+       console.log("-----------------------------------------");
+       console.log("# undefined 와 null 비교");
+       let myVar1;
+       let myVar2 = null;
+       console.log(myVar1); // undefined
+       console.log(myVar2); // null
+
+       console.log(myVar1 == myVar2); // true
+       console.log(myVar1 === myVar2); // false
+
+       console.log(123 == 123);     //true
+       console.log(123 == '123');     //true
+       console.log(123 === '123');     //false
+
+       console.log('-----');
+       console.log('' == false);  // true
+       console.log('' === false);   // false
+
+       console.log('' == 0 );   // true
+       console.log('' === 0 );  // false
+
+       console.log(false == 0 ); //true
+       console.log(false === 0 ); //false
+
+
+
+
+
+
+
+
+    </script>
+<!-- ---------------------------------------------------------- -->
+</body>
+</html>
