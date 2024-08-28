@@ -51,13 +51,22 @@
         console.log(result[1]);
 
         console.log("--------------------------------------------------------");
-        //숫자("문자열-->숫자")
+        //숫자(문자열-->숫자)
         let num01 = '100.34';
-        let no = Number(num01); // 숫자로 변환
+        let no = Number(num01); // 문자열-->숫자로 변환
         console.log(typeof no, no);
 
-        let no2 = parseInt(num01); //정수로 만듬(소수점 없앰)
+        let no2 = parseInt(num01); //문자열-->정수로 만듬(소수점 없앰)
         console.log(typeof no2, no2);
+        console.log("--------------------------------------------------------");
+        //수학
+        console.log(Math.PI);
+        console.log(Math.abs(-123)); //절대값
+        console.log(Math.ceil(123.456)); //124 올림
+        console.log(Math.floor(123.456)); //124 내림
+        console.log(Math.round(123.556)); //124 반올림
+        console.log(Math.random()); //랜덤
+
 
     </script>
     <!-- ------------------------------------------------------- -->
