@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js공부</title>
+</head>
+
+<body>
+    <h1>자바스크립트</h1>
+    <h2>전역 객체</h2>
+
+    <!-- ------------------------------------------------------- -->
+    <script>
+
+        let date = new Date();
+        console.log(date);
+
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        let day = date.getDate();
+        console.log(year);
+        console.log(month+1);
+        console.log(day);
+
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+        console.log(hour);
+        console.log(minute);
+        console.log(second);
+
+        let today = year + "년 " + (month+1) + "월 " + day + "일";
+        console.log(today);
+        
+        //화면에 그리기
+        document.write("오늘은 " + today + " 입니다.");
+        console.log("--------------------------------------------------------");
+
+        //문자열
+        let str = 'hello';
+        console.log(str.length);
+        console.log('hello!!'.length);
+        console.log(str.charAt(0)); //해당 문자열의 글자 반환
+        let jumin = '990101-1234567'
+        console.log(jumin.charAt(7)); //1 성별을 알아 낼 수 있다. 이런식으로 쓰는거다
+        
+        let str2 = '정우성, 010-1111-1111';
+        let result = str2.split(','); 
+        console.log(result[0]);
+        console.log(result[1]);
+
+        console.log("--------------------------------------------------------");
+        //숫자("문자열-->숫자")
+        let num01 = '100.34';
+        let no = Number(num01); // 숫자로 변환
+        console.log(typeof no, no);
+
+        let no2 = parseInt(num01); //정수로 만듬(소수점 없앰)
+        console.log(typeof no2, no2);
+
+    </script>
+    <!-- ------------------------------------------------------- -->
+</body>
+
+</html>
