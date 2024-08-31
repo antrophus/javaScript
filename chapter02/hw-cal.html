@@ -1,94 +1,117 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="./cal.css" rel="stylesheet" type="text/css">
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	<link href="./cal.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+	<div id="cal">
+		<input id="display" type="text" readonly><br>
 
-<div id="cal">
-	<input id="display" type="text"><br>
-	
-	<div id="btnArea">
-		<button id="btn9" type="button">7</button>
-		<button id="btn8" type="button">8</button>
-		<button id="btn7" type="button">9</button>
-		
-		<button id="btnDiv" type="button">/</button>
-		<br>
-		
-		<button id="btn6" type="button">4</button>
-		<button id="btn5" type="button">5</button>
-		<button id="btn4" type="button">6</button>
-		
-		<button id="btnMulti" type="button">*</button>
-		<br>
-		
-		<button id="btn3" type="button">1</button>
-		<button id="btn2" type="button">2</button>
-		<button id="btn1" type="button">3</button>
-		
-		<button id="btnPlus" type="button">+</button>
-		<br>
-		
-		<button id="btnClear" type="button">C</button>
-		<button id="btn0" type="button">0</button>
-		<button id="btnEqual" type="button">=</button>
-		<button id="btnMinus" type="button">-</button>
-		<br>
-	</div>
+		<div id="btnArea">
+			<button id="btn9" type="button">7</button>
+			<button id="btn8" type="button">8</button>
+			<button id="btn7" type="button">9</button>
+			<button id="btnDiv" type="button">/</button><br>
 
-	<script>
-		// DOM tree 완료
-		document.addEventListener("DOMContentLoaded", function() {
-            var btns = document.querySelectorAll("#cal button");
-            
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].addEventListener("click", function() {
-                    var display = document.getElementById("display");
-                    display.value += this.innerText;
-                });
-            }
-            
-            document.getElementById("btnEqual").addEventListener("click", function() {
-                var display = document.getElementById("display");
-                var result = eval(display.value);
-                display.value = result;
-            });
-            
-            document.getElementById("btnClear").addEventListener("click", function() {
-                var display = document.getElementById("display");
-                display.value = "";
-            });
-            
-            document.getElementById("btnMinus").addEventListener("click", function() {
-                var display = document.getElementById("display");
+			<button id="btn6" type="button">4</button>
+			<button id="btn5" type="button">5</button>
+			<button id="btn4" type="button">6</button>
+			<button id="btnMulti" type="button">*</button><br>
+
+			<button id="btn3" type="button">1</button>
+			<button id="btn2" type="button">2</button>
+			<button id="btn1" type="button">3</button>
+			<button id="btnPlus" type="button">+</button><br>
+
+			<button id="btnClear" type="button">C</button>
+			<button id="btn0" type="button">0</button>
+			<button id="btnEqual" type="button">=</button>
+			<button id="btnMinus" type="button">-</button><br>
+		</div>
+
+		<script>
+			// DOM tree 완료
+			document.addEventListener('DOMContentLoaded', function () {
+				console.log('DOM tree 완료후');
+				
+				// 태그 불러오기
+				var display = document.querySelector("#display"); // 화면 표시
+				var btns = document.querySelectorAll("#cal button"); // 버튼 태그 
+
+				var currentInput = ""; // 현재 입력 중인 숫자
+				var operator = ""; // 현재 입력된 연산자
+				var previousInput = ""; // 이전에 입력된 숫자
+
+				// 연산 수행 함수
+				function calculate(num1, op, num2) {
+					switch (op) {
+						case '+':
+							return num1 + num2;
+						case '-':
+							return num1 - num2;
+						case '*':
+							return num1 * num2;
+						case '/':
+							return num1 / num2;
+						default:
+							return 0;
+					}
+				}
+				// 입력한 버튼 클릭시 이벤트 생성
+				for (var i = 0; i < btns.length; i++) {
+					btns[i].addEventListener("click", function () {
+						//클릭한 버튼의 값을 변수에 넣기
+						var btnValue = this.textContent;
+
+						// 넣은 값이 0~9 사이이면 현재 입력값에 넣고 화면에 띄움
+						if (btnValue >= '0' && btnValue <= '9') {
+							currentInput += btnValue;
+							display.value = currentInput;
+						// 넣은 값이 c 이면 초기화 
+						} else if (btnValue === 'C') {
+							currentInput = "";
+							operator = "";
+							previousInput = "";
+							display.value = "";
+						// 넣은 값이 = 일경우 답 출력
+						} else if (btnValue === '=') {
+							// 처음 이전 값, 연산자, 지금 넣은 값이 모두 존재하면 발동
+							if (previousInput !== "" && operator !== "" && currentInput !== "") {
+								// 임의로 설정한 함수 calculate 에 이전 값, 연산자, 지금 값을 넣어서 실행
+								var result = calculate(Number(previousInput), operator, Number(currentInput));
+								// 결과값을 display 에 표시
+								display.value = result;
+								// 결과 값을 문자열 변환하여 이전 값에 넣어
+								previousInput = result.toString();
+								// 지금 값을 초기화
+								currentInput = "";
+								// 연산자 초기화
+								operator = "";
+							}
+
+						} else {
+							if (currentInput !== "") {
+								// 이전 값이 공백이면 지금 입력 값을 이전 값으로 넣어
+								if (previousInput === "") {
+									previousInput = currentInput;
+									// 이전 값이 존재하면 이전 값, 연산자, 지금 값을 calculate 에 넣어서 계산 후 이전 값으로 넣어
+								} else if (operator !== "" && currentInput !== "") {
+									previousInput = calculate(Number(previousInput), operator, Number(currentInput)).toString();
+								}
+								operator = btnValue;
+								currentInput = "";
+								display.value = previousInput + " " + operator;
+							}
+						}
+					});
+				}
 			});
-
-			// calculator logic goes here...
-			// ex) document.getElementById("btnMinus").addEventListener("click", function() {
-            //     var display = document.getElementById("display");
-            //     var num1 = parseFloat(display.value.split("-")[0]);
-            //     var num2 = parseFloat(display.value.split("-")[1]);
-            //     display.value = num1 - num2;
-            // });
-            
-        });
-
-
-	</script>
-	
-	
-</div>
-
-
+		</script>
+	</div>
 </body>
-
-
-
-
 
 </html>

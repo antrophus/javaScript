@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>기본동작 방지</title>
+
+    <style>
+        ul {
+            width: 200px;
+            padding: 20px;
+            background-color: rgb(0, 235, 252);
+        }
+
+        ul>li {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="guestForm" action="/mysite/guestbook/write" method="get">
+            <table border="1" width="540px">
+                <tr>
+                    <td>이름</td>
+                    <td><input type="text" name="name" ></td>
+                    <td>비밀번호</td>
+                    <td><input type="password" name="pw"></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><textarea cols="72" rows="5" name="content"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><button id="btnWrite" type="submit">등록</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br>
+
+    <script>
+        //DOM tree 완성
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM tree 완료');
+            //버튼이 아니라 form을 가져와야 함
+            let guestForm = document.querySelector('#guestForm');
+            console.log(guestForm);
+            
+            //이벤트를 붙여준다.
+            //submit 이벤트 : form 전송
+            guestForm.addEventListener('submit', function (event) {
+                console.log('전송버튼 클릭하면 나오는 메세지');
+                
+                //form 전송을 막아줌
+                // event.preventDefault(); 
+
+                //input 태그를 가져오기
+                let nameTag = document.querySelector('input[name="name"]');
+                let pwTag = document.querySelector('input[name="pw"]');
+
+                let name = nameTag.value.trim(); // 이름 입력값 확인(트림은 양쪽 공백 제거)
+                console.log(name);
+                if (name == ''){ //이름이 없으면
+                    alert('이름을 입력하세요'); // 경고창 띄우고
+                    event.preventDefault(); // 전송멈추기
+                    return false;
+                }
+                
+                let pw = pwTag.value.trim(); // 비밀번호 입력값 확인(트림은 양쪽 공백 제거)
+                console.log(pw);
+                if (pw == ''){ // 비밀번호가 없으면
+                    alert('비밀번호를 입력하세요');
+                    event.preventDefault();
+                    return false;
+                }
+
+                //체크사항 모두 만족
+                //서버로 전송
+            });
+
+
+
+        });
+    </script>
+
+
+
+</body>
+
+
+
+</html>
