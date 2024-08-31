@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <style>
+
+    </style>
+
+
+</head>
+
+<body>
+    <ul>
+        <li>첫번째 아이템 입니다.</li>
+        <li>두번째 아이템 입니다.</li>
+        <li>세번째 아이템 입니다.</li>
+        <li>네번째 아이템 입니다.</li>
+        <li>다섯번째 아이템 입니다.</li>
+    </ul>
+
+    <button type="button" id="btnBefore">앞에 추가</button> <!-- 앞에 추가된 아이템 입니다. -->
+    <button type="button" id="btnAfter">뒤에 추가</button> <!-- 뒤에 추가된 아이템 입니다. -->
+
+
+
+    <script>
+        //DOM tree 완료 후
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM tree 완료');
+
+            //태그불러오기
+            let bf = document.querySelector('#btnBefore');
+            let af = document.querySelector('#btnAfter');
+            console.log(bf, af);
+
+            // 앞에 추가 버튼 클릭시 활동
+            bf.addEventListener('click', function () {
+                console.log('앞버튼 클릭');
+
+                let ulTag = document.querySelector('ul');
+                console.log(ulTag);
+
+                ulTag.insertAdjacentHTML('afterBegin', '<li>앞에 추가된 아이템 입니다.</li>');
+            });
+            
+            // 뒤에 추가 버튼 클릭시 활동
+            af.addEventListener('click', function () {
+                console.log('뒤버튼 클릭');
+
+                let ulTag = document.querySelector('ul');
+                console.log(ulTag);
+
+                ulTag.insertAdjacentHTML('beforeend', '<li>뒤에 추가된 아이템 입니다.</li>');
+
+            });
+        });
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>

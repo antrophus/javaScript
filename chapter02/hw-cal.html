@@ -13,23 +13,23 @@
 	<input id="display" type="text"><br>
 	
 	<div id="btnArea">
-		<button id="btn9" type="button">9</button>
+		<button id="btn9" type="button">7</button>
 		<button id="btn8" type="button">8</button>
-		<button id="btn7" type="button">7</button>
+		<button id="btn7" type="button">9</button>
 		
 		<button id="btnDiv" type="button">/</button>
 		<br>
 		
-		<button id="btn6" type="button">6</button>
+		<button id="btn6" type="button">4</button>
 		<button id="btn5" type="button">5</button>
-		<button id="btn4" type="button">4</button>
+		<button id="btn4" type="button">6</button>
 		
 		<button id="btnMulti" type="button">*</button>
 		<br>
 		
-		<button id="btn3" type="button">3</button>
+		<button id="btn3" type="button">1</button>
 		<button id="btn2" type="button">2</button>
-		<button id="btn1" type="button">1</button>
+		<button id="btn1" type="button">3</button>
 		
 		<button id="btnPlus" type="button">+</button>
 		<br>
@@ -40,6 +40,46 @@
 		<button id="btnMinus" type="button">-</button>
 		<br>
 	</div>
+
+	<script>
+		// DOM tree 완료
+		document.addEventListener("DOMContentLoaded", function() {
+            var btns = document.querySelectorAll("#cal button");
+            
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function() {
+                    var display = document.getElementById("display");
+                    display.value += this.innerText;
+                });
+            }
+            
+            document.getElementById("btnEqual").addEventListener("click", function() {
+                var display = document.getElementById("display");
+                var result = eval(display.value);
+                display.value = result;
+            });
+            
+            document.getElementById("btnClear").addEventListener("click", function() {
+                var display = document.getElementById("display");
+                display.value = "";
+            });
+            
+            document.getElementById("btnMinus").addEventListener("click", function() {
+                var display = document.getElementById("display");
+			});
+
+			// calculator logic goes here...
+			// ex) document.getElementById("btnMinus").addEventListener("click", function() {
+            //     var display = document.getElementById("display");
+            //     var num1 = parseFloat(display.value.split("-")[0]);
+            //     var num2 = parseFloat(display.value.split("-")[1]);
+            //     display.value = num1 - num2;
+            // });
+            
+        });
+
+
+	</script>
 	
 	
 </div>

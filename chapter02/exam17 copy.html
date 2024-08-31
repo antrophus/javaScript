@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <style>
+        ul {
+            width: 200px;
+            padding: 20px;
+            background-color: rgb(0, 235, 252);
+        }
+
+        ul>li {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>첫번째 아이템 입니다.</li>
+        <li>두번째 아이템 입니다.</li>
+        <li>세번째 아이템 입니다.</li>
+        <li>네번째 아이템 입니다.</li>
+        <li>다섯번째 아이템 입니다.</li>
+    </ul>
+    <button type="button" id="btnAfter">뒤에 추가</button> <!-- 뒤에 추가된 아이템 입니다. -->
+
+    <script>
+        //DOM tree 완성
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM tree 완료');
+
+            // 변수(btn) 설정 : 버튼태그를 가져옴
+            let btn = document.querySelector('#btnAfter');
+            console.log(btn);
+            
+            // 이벤트(click) 설정 : 버튼을 클릭했을 때 이 일을 해줘. 시킴
+            btn.addEventListener('click', function(){
+                console.log('클릭');
+
+                //ul 태그를 불러와서 변수를 지정해주고
+                let ulTag = document.querySelector('ul');
+                console.log(ulTag);
+                
+                // li 태그를 추가하는 insertAdjacentHTML() 메소드를 사용.
+                ulTag.insertAdjacentHTML('beforeend', '<li>뒤에 추가된 아이템 입니다.</li>');
+                
+            });
+            
+            
+
+
+        });
+    </script>
+
+
+
+</body>
+
+
+
+</html>

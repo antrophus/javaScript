@@ -1,19 +1,19 @@
-스토리지의 95% 사용됨 … 스토리지가 부족하면 파일을 만들거나 수정하거나 업로드할 수 없습니다. 3개월 동안 100GB 스토리지를 월 ₩2,400 ₩600에 이용하세요.
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
 
-<style>
+    <style>
 
-</style>
+    </style>
 
 
 </head>
 
 <body>
-	<div id="dataArea">
+    <div id="dataArea">
         <table border="1" width="540px">
             <tr>
                 <td>1</td>
@@ -26,7 +26,7 @@
             </tr>
         </table>
         <br>
-        
+
         <table border="1" width="540px">
             <tr>
                 <td>2</td>
@@ -39,7 +39,7 @@
             </tr>
         </table>
         <br>
-    
+
         <table border="1" width="540px">
             <tr>
                 <td>3</td>
@@ -52,17 +52,49 @@
             </tr>
         </table>
         <br>
-
         <button id="btnGetDate" type="button">데이터수집</button>
-	</div>
+    </div>
+    <br>
 
-	<br>
+    <script>
+        //DOM tree 완성 후
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM 완성');
+
+            //태그 불러오기
+            let tbl = document.querySelectorAll('tr');
+
+            // console.log(tbl[0].textContent);
+            // console.log(tbl[1].textContent);
+            // console.log(tbl[2].textContent);
+            // console.log(tbl[3].textContent);
+            // console.log(tbl[4].textContent);
+            // console.log(tbl[5].textContent);
+
+            //버튼 클릭하면 persons list에 객체로 저장
+            let btn = document.querySelector('#btnGetDate');
+            btn.addEventListener('click', function () {
+
+                //persons list를 만들고 각 객체를 묶어서 저장
+                let persons = [];
+                for (let i = 0; i < tbl.length; i += 2) {
+                    let personVo = {
+                        no: tbl[i].children[0].textContent,
+                        name: tbl[i].children[1].textContent,
+                        visitDate: tbl[i].children[2].textContent,
+                        content: tbl[i + 1].textContent
+                    }
+                    //persons 리스트에 personVo 정보를 집어 넣음.
+                    persons.push(personVo);
+                    
+                }console.log(persons); //리스트 수집 한 내역 콘솔에 출력
+            });
+        });
+
+    </script>
 
 </body>
 
-<script>
 
-
-</script>
 
 </html>

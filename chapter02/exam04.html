@@ -2,14 +2,14 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자바스크립트-선택자</title>
 <link href="" rel="stylesheet">
 
 </head>
 
 <body>
     
-	<h1>자바스크립트</h1>
+	<h1>자바스크립트-선택자</h1>
 	<div id="nav">
 		<ul>
 			<li>게시판</li>
@@ -36,6 +36,68 @@
 		
 		<button type="submit">전송</button>
 	</form>
+
+	<script>
+		//DOM Tree 완성되었을때
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('DOMTree 완성');
+			/****************************************
+			 * document.querySelector();  => 1개
+			 *  *************************************/
+
+
+			 //1개 가져오기
+			let h1Tag =	document.querySelector('h1');
+			console.log(h1Tag);
+
+			//실험 li : 맨 위에꺼 한개만 가져온다.
+			let liTag = document.querySelector('li');
+			console.log(liTag);
+
+			/****************************************
+			 * document.querySelectorAll();  => 여러개
+			 *  *************************************/
+
+			//여러개 가져오기
+			let liTags = document.querySelectorAll('li');
+            console.log(liTags);
+
+			//li 요소 모두 파란색으로
+			for(let i = 0; i < liTags.length; i++){
+                liTags[i].style.color = 'blue';
+            }
+
+			//클래스명이 active인 요소 빨간색으로
+			// let activeClass = document.querySelectorAll('.active');
+            // console.log(activeClass);
+			// for(let i = 0; i < activeClass.length; i++){
+            //     activeClass[i].style.color ='red';
+            // }
+			let actTag = document.querySelector('#nav>ul>li.active');
+			actTag.style.color ='#ff0000';
+
+			//li요소와 label요소 모두 빨간색으로
+			let reds = document.querySelectorAll('li, label');
+            for(let i = 0; i < reds.length; i++){
+                reds[i].style.color ='#ff0000';
+            }
+
+			//name = userId inputbox를 빨강
+			let input = document.querySelector('input[name="userId"]');
+                input.style.color ='#0000ff';
+            
+
+			//마지막 li 요소를 초록색으로 변경
+			let lastLi = document.querySelector('li:last-child');
+            lastLi.style.color ='#00ff00';
+
+
+		});
+
+	</script>
+
+
+
 </body>
 
 <script>

@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 
-<style>
+	<style>
 
-</style>
+	</style>
 
 
 </head>
 
 <body>
-    <div>
+	<div>
 		<table border="1" width="540px">
 			<tr>
-				<td>이름</td><td><input type="text" name="name"></td>
-				<td>비밀번호</td><td><input type="password" name="pw"></td>
+				<td>이름</td>
+				<td><input type="text" name="name"></td>
+				<td>비밀번호</td>
+				<td><input type="password" name="pw"></td>
 			</tr>
 			<tr>
 				<td colspan="4"><textarea cols="72" rows="5" name="content"></textarea></td>
@@ -27,20 +30,53 @@
 		</table>
 	</div>
 	<br>
+	<script>
+		//DOM tree 완료
+		document.addEventListener('DOMContentLoaded', function () {
+			console.log('DOM tree 완료');
 
+			//변수(btn) 설정 : 버튼태그를 가져옴
+			let btn = document.querySelector('#btnWrite');
+			console.log(btn);
+
+			//방명록 데이터 저장할 리스트 변수 생성
+			let guestbook = [];
+
+			//이벤트(click) 설정 : 버튼을 클릭했을 때 이 일을 해줘. 시킴
+			btn.addEventListener('click', function () {
+				console.log("클릭했다. 일하자");
+
+				//input 태그를 불러와서 변수를 지정해주고
+				let name = document.querySelector('input[name="name"]').value;
+				let pw = document.querySelector('input[name="pw"]').value;
+				let content = document.querySelector('textarea[name="content"]').value;
+				
+				//데이터 제대로 찍는지 확인 한번 하고
+				console.log(name, pw, content);
+				
+				//객체 생성
+				let guestbookVo = {
+					name: name,
+					pw: pw,
+					content: content
+				};
+				
+				//생성한 객체 확인 한번 해주고
+				console.log(guestbookVo);
+
+				//방명록 데이터 저장
+				guestbook.push(guestbookVo);
+
+				//화면에 남은 글 비워서 다음 사람 쓰게 해주자
+				document.querySelector('input[name="name"]').value = "";
+				document.querySelector('input[name="pw"]').value = "";
+				document.querySelector('textarea[name="content"]').value = "";
+			});
+			console.log(guestbook);
+		});
+	</script>
 </body>
 
-<script>
 
-
-
-
-
-
-
-
-
-
-</script>
 
 </html>

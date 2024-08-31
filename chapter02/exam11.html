@@ -61,10 +61,29 @@
 	<p id="p14">문장2</p>
 
 
+	<script>
+		//DOM tree 완료 후
+		document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM tree 완료');
+
+
+			//#p11태그의 컨텐츠를 가져오세요
+			let p11Tag = document.querySelector('#p11');
+			console.log(p11Tag);
+			console.log(p11Tag.innerHTML); // "자바<strong>스크립트</strong>"
+			console.log(p11Tag.textContent); // 자바스크립트
+
+			//#p13태그의 텍스트를 --> "<strong>가나다라마바사아자차카타파하</strong>" 로 바꾸세요.
+			let p13Tag = document.querySelector('#p13');
+            console.log(p13Tag);
+			p13Tag.textContent = "<strong>가나다라마바사아자차카타파하</strong>";
+            p13Tag.innerHTML = "<strong>가나다라마바사아자차카타파하</strong>";
+
+		});
+
+	</script>
 
 </body>
 
-<script>
-</script>
 
 </html>

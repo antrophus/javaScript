@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+    div{
+        border : 1px solid black;
+        background-color : rgb(139, 139, 255);
+        cursor : pointer;
+    }
+
+    p{
+        border : 1px solid black;
+        background-color : rgb(255, 139, 230);
+    }
+</style>
+
+
+</head>
+
+<body>
+    <div>
+        <!-- beforbegin -->
+        <p>
+            <!-- afterbegin --> 마바사아자차카타파하 <!-- beforeend -->
+        </p>
+        <!-- afterend -->
+    </div>
+
+
+
+    <script>
+        //DOM tree 완료 후
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM tree 완료');
+
+            let pTag = document.querySelector('body>div>p');
+
+            console.log(pTag.innerHTML);
+            //p태그 내용 변경
+            // pTag.innerHTML = '가나다라마바사';
+            // console.log(pTag.innerHTML);
+
+            //p태그 내용에 삽입
+            // 1. afterbegin
+            pTag.insertAdjacentHTML('afterbegin', '가나다라');
+
+            // 2. beforeend
+            pTag.insertAdjacentHTML('beforeend', 'abcd');
+
+            // 3. beforebegin
+            pTag.insertAdjacentHTML('beforebegin', '시작전');
+            
+            // 4. afterend
+            pTag.insertAdjacentHTML('afterend', '끝난후');
+
+        });
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>

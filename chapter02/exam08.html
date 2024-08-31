@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="" rel="stylesheet">
 
 </head>
 
@@ -16,7 +17,7 @@
 			<li id="guestbook">방명록</li>
 		</ul>
 	</div>
-	
+
 	<div id="content">
 		<p class="red">내용1입니다.</p>
 
@@ -49,7 +50,97 @@
 			</tr>
 		</tbody>
 	</table>
+	<script>
+		//DOM tree
+		document.addEventListener('DOMContentLoaded', function () {
+			console.log('DOM tree 완료');
+			
+			let tag01 = document.querySelector('#n-1');
+			let tag01Name = tag01.children[0].textContent;
+			let tag01Hp = tag01.children[1].textContent;
+			let tag01Company = tag01.children[2].textContent;
 
+			let personVo1 = {
+            	name: tag01.children[0].textContent,
+            	hp: tag01.children[1].textContent,
+            	company: tag01.children[2].textContent
+        	};
+
+			console.log(personVo1);
+
+			let tag02 = document.querySelector('#n-2');
+			let tag02Name = tag02.children[0].textContent;
+			let tag02Hp = tag02.children[1].textContent;
+			let tag02Company = tag02.children[2].textContent;
+
+			let personVo2 = {
+            	name: tag02.children[0].textContent,
+            	hp: tag02.children[1].textContent,
+            	company: tag02.children[2].textContent
+        	};
+			
+			console.log(personVo2);
+
+			let tag03 = document.querySelector('#n-3');
+			let tag03Name = tag03.children[0].textContent;
+			let tag03Hp = tag03.children[1].textContent;
+			let tag03Company = tag03.children[2].textContent;
+
+            let personVo3 = {
+            	name: tag03.children[0].textContent,
+            	hp: tag03.children[1].textContent,
+            	company: tag03.children[2].textContent
+        	};
+			
+            console.log(personVo3);
+
+			let personList = [personVo1, personVo2, personVo3];
+			console.log(personList);
+
+			for(let i =0; i < personList.length; i++){
+				console.log("name: " + personList[i].name);
+			}
+			console.log("================================================================")
+
+			let getTr = document.querySelectorAll('tbody>tr');
+			// console.log(getTr[0].children[0].textContent); 	// 정우성
+			// console.log(getTr[0].children[1].textContent); 	// hp
+			// console.log(getTr[0].children[2].textContent); 	// company
+			// console.log(getTr[1].children[0].textContent);	// 이효리
+			// console.log(getTr[1].children[1].textContent);	// hp
+			// console.log(getTr[1].children[2].textContent);	// company
+			// console.log(getTr[2].children[0].textContent);	// 박명수
+			// console.log(getTr[2].children[1].textContent);	// hp
+			// console.log(getTr[2].children[2].textContent);	// company
+
+			let name = getTr[0].children[0].textContent;
+			let hp = getTr[0].children[1].textContent;
+			let company = getTr[0].children[2].textContent;
+			console.log(name, hp, company);
+
+			for(let i=0; i<getTr.length; i++){
+				let name = getTr[i].children[0].textContent;
+				let hp = getTr[i].children[1].textContent;
+				let company = getTr[i].children[2].textContent;
+
+				let personVo = {
+				name: name,
+				hp: hp,
+                company: company
+			}
+			console.log(personVo);
+			console.log(personVo.name);
+
+			personList.push(personVo);
+		}
+		console.log(personList);
+
+
+
+		});
+
+
+	</script>
 </body>
 
 <script>

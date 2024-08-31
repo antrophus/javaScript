@@ -25,7 +25,7 @@
                 <col style="width: 100px;">
                 <col style="width: 100px;">
             </colgroup>
-            <tr>
+            <tr id="lottoNumbers">
                 <td>?</td>
                 <td>?</td>
                 <td>?</td>
@@ -42,12 +42,35 @@
     </table>
     <br>
 
+    <script>
+        //DOM tree 완료 후
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM tree 완료');
+
+            //버튼을 클릭해서 무작위 번호 6개를 가져온다.
+            let btn = document.querySelector('#btnMakeNo');
+            btn.addEventListener('click', function () {
+                console.log('btn');
+
+                //숫자 담을 배열 준비
+                let arrNum = [];
+
+                let lottoNum = document.querySelectorAll('#lottoNumbers>td');
+
+                //arrNum 에 6개의 랜덤한 숫자를 넣어준다
+                for (let i = 0; i < 6; i++) {
+                    let num = Math.floor(Math.random() * 45) + 1;
+                    if (arrNum.includes(num)) {
+                        i--;
+                        continue;
+                    }
+                    arrNum.push(num);
+                    lottoNum[i].textContent = arrNum[i];
+                }
+            });
+        });
+    </script>
+
 </body>
-
-<script>
-
-
-
-</script>
 
 </html>

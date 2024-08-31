@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="" rel="stylesheet">
 
 </head>
 
 <body>
-	
+
 	<!--아이디-->
 	<ul>
 		<li id="first"> 텍스트1 텍스트1 텍스트1 텍스트1 텍스트1 </li>
@@ -17,12 +18,42 @@
 		<li id="fourth"> 텍스트4 텍스트4 텍스트4 텍스트4 텍스트4 </li>
 		<li id="first"> 텍스트1-1 텍스트1-1 텍스트1-1 텍스트1-1 텍스트1-1 </li>
 	</ul>
+<!-- --------------------------------------------------------------------- -->
+	<script>
 
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('DOM tree 완료');
 
+			//id=second
+			let seTag = document.getElementById("second");
+			console.dir(seTag);
+			seTag.style.color='#ff0000';
+
+			//id=third blue
+			let thTag = document.getElementById("third");
+            console.log("" + thTag);
+            thTag.style.color='#0000ff';
+			
+            //id=forth green
+			let foTag = document.getElementById("fourth");
+            console.log("" + foTag);
+            foTag.style.color='#00ff00';
+
+            //id=first pink 동일한 ID 중복 => 맨 위 하나만 적용됨
+			let firstTag = document.getElementById("first");
+            console.log("" + firstTag);
+            firstTag.style.color='#ff00ff';
+			
+		});
+
+		window.addEventListener('load', function(){
+			console.log('페인팅까지 완료');
+            
+
+		});
+
+	</script>
+<!-- --------------------------------------------------------------------- -->
 </body>
-
-<script>
-
-</script>
 
 </html>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="" rel="stylesheet">
 
 </head>
 
@@ -16,7 +17,7 @@
 			<li id="guestbook">방명록</li>
 		</ul>
 	</div>
-	
+
 	<div id="content">
 		<p class="red">내용1입니다.</p>
 
@@ -50,9 +51,62 @@
 		</tbody>
 	</table>
 
+	<script>
+		//DOM tree 완료
+		document.addEventListener('DOMContentLoaded', function () {
+			console.log('DOM tree 완료');
+
+			let tag01 = document.querySelector('h1');
+			console.log(tag01); 
+			console.log(tag01.parentElement);
+			console.log(tag01.parentElement.tagName);
+
+			//클래스명이 red
+			let tag02 = document.querySelector('.red');
+            console.log(tag02);
+			console.log(tag02.parentElement);
+            console.log(tag02.parentElement.tagName, tag02.parentElement.id);
+
+			//id가 n-3의 부모 요소
+			let tag03 = document.querySelector('#n-3');
+			console.log(tag03);
+			console.log(tag03.parentElement);
+			
+			//이효리 핸드폰 td
+			let tag04 = document.querySelector('#h-2');
+            console.log(tag04);
+            
+			//id
+			console.log(tag04.id);
+
+			//#h-2 위치일 때 본인의 tr의 id값 출력
+			console.log(tag04.parentElement);
+			console.log(tag04.parentElement.id);
+
+			//#h-2 위치일 때 이효리 이름 출력
+			console.log(tag04.previousElementSibling.innerHTML);
+
+			//#h-2 위치일 때 회사 번호 출력
+			console.log(tag04.nextElementSibling.textContent);
+
+			//#h-2 위치일 때 정우성 회사번호
+			console.log(tag04.parentElement.previousElementSibling.lastElementChild.textContent);
+
+			
+
+
+
+
+			
+
+
+		});
+
+	</script>
+
+
 </body>
 
-<script>
-</script>
+
 
 </html>
